@@ -6,17 +6,19 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 
+// {
+//         id: 1,
+//         title: 'wake up'
+//       },
+//       {
+//         id: 2,
+//         title: 'setup the day'
+//       },
+
 class App extends Component {
   state = {
     items: [
-      {
-        id: 1,
-        title: 'wake up'
-      },
-      {
-        id: 2,
-        title: 'setup the day'
-      },
+      //
     ],
     id: uuidv4(),
     item: '',
@@ -25,11 +27,25 @@ class App extends Component {
 
   // handle method
   handleChange = (e) => {
-    //
+    this.setState({
+      item: e.target.value
+    })    
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
+    const newItem = {
+      id: this.state.id,
+      title: this.state.item
+    }
+    const updatedItems = [...this.state.items, newItem]
+
+    this.setState({
+      items: updatedItems,
+      item: '',
+      id: uuidv4(),
+      editItem: false
+    })
   }
 
   handleDelete = (id) => {
