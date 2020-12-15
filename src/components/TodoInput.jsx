@@ -14,7 +14,10 @@ class TodoInput extends Component {
                             value={item}
                             onChange={handleChange} />
                     </div>
-                    <button type="submit" className='btn btn-block text-uppercase btn-primary'>add item</button>
+                    <button type="submit" className='btn btn-block text-uppercase btn-primary'>
+                        <i class="fas fa-plus-circle"/>
+                        add item
+                    </button>
                 </form>
             </div>
         );
