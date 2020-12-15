@@ -6,20 +6,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 
-// {
-//         id: 1,
-//         title: 'wake up'
-//       },
-//       {
-//         id: 2,
-//         title: 'setup the day'
-//       },
-
 class App extends Component {
   state = {
     items: [],
     id: uuidv4(),
-    item: '',
+    item: "",
     editItem: false
   }
 
@@ -36,6 +27,7 @@ class App extends Component {
       id: this.state.id,
       title: this.state.item
     }
+
     const updatedItems = [...this.state.items, newItem]
 
     this.setState({
@@ -47,13 +39,21 @@ class App extends Component {
   }
 
   handleDelete = (id) => {
-    const filteredItem = this.state.items.filter(item => item.id !== id)
+    const filteredItems = this.state.items.filter(item => item.id !== id)
     this.setState({
-      items: filteredItem
+      items: filteredItems
     })
   }
-
+  
   handleEdit = (id) => {
+    const filteredItems = this.state.items.filter(item => item.id !== id)
+    const seletedItem = this.state.items.find(item => item.id === id)
+    this.setState({
+      items: filteredItems,
+      item: seletedItem.title,
+      id: id,
+      editItem: true
+    })
     //
   }
 
@@ -63,9 +63,7 @@ class App extends Component {
     })
   }
 
-  render() {  
-    console.log(this.state)  
-
+  render() {
     return (
       <div className="container">
         <div className="row">
@@ -88,7 +86,7 @@ class App extends Component {
           </div>
         </div>
       </div>
-  );
+    );
   }
 }
 
