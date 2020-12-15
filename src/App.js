@@ -17,9 +17,7 @@ import TodoList from './components/TodoList';
 
 class App extends Component {
   state = {
-    items: [
-      //
-    ],
+    items: [],
     id: uuidv4(),
     item: '',
     editItem: false
@@ -49,7 +47,10 @@ class App extends Component {
   }
 
   handleDelete = (id) => {
-    //
+    const filteredItem = this.state.items.filter(item => item.id !== id)
+    this.setState({
+      items: filteredItem
+    })
   }
 
   handleEdit = (id) => {
@@ -57,7 +58,9 @@ class App extends Component {
   }
 
   clearList = () => {
-    //
+    this.setState({
+      items: []
+    })
   }
 
   render() {  

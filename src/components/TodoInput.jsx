@@ -7,7 +7,9 @@ class TodoInput extends Component {
             <div className='card card-body my-3'>
                 <form onSubmit={handleSubmit}>
                     <div className="input-group mb-3">
-                        <span className="input-group-text bg-primary text-white" ><i class="fas fa-book"/></span>
+                        <span className="input-group-text bg-primary text-white" >
+                            <i className="fas fa-book"/>
+                        </span>
                         <input 
                             type="text" className="form-control text-capitalize" 
                             placeholder="add todo item" 
@@ -15,7 +17,7 @@ class TodoInput extends Component {
                             onChange={handleChange} />
                     </div>
                     <button type="submit" className='btn btn-block text-uppercase btn-primary'>
-                        <i class="fas fa-plus-circle"/>
+                        <i className="fas fa-plus-circle"/>
                         add item
                     </button>
                 </form>
