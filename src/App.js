@@ -57,6 +57,7 @@ class App extends Component {
     //
   }
 
+  // clearing the list of items
   clearList = () => {
     this.setState({
       items: []
